@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  dijon:
+    container_name: dijon
+    network_mode: bridge
+    image: grauwoelfchen/dijon
+    build: ./
+    ports:
+      - "80:80"
+      - "443:443"
+      - "4443:4443"
+      - "10000-10004:10000-10004/udp"
+    extra_hosts:
+      - "localhost:127.0.0.1"
+      - "auth.localhost:127.0.0.1"
+      - "conference.localhost:127.0.0.1"
+      - "focus.localhost:127.0.0.1"
+      - "jitsi-videobridge.localhost:127.0.0.1"
